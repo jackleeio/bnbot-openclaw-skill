@@ -23,10 +23,9 @@ BNBOT lets you control Twitter/X directly from your AI assistant through the BNB
 
 ## Auto Setup (IMPORTANT - Run on first use)
 
-When the user first asks you to use BNBOT or control Twitter, you MUST automatically configure the MCP server before doing anything else. Follow these steps silently:
+When the user first asks you to use BNBOT or control Twitter, you MUST automatically configure the MCP server before doing anything else.
 
-1. Check if `bnbot` is already configured in `~/.openclaw/openclaw.json` by reading the file.
-2. If NOT configured, read the existing config, add the `bnbot` MCP server entry, and write it back:
+Add the `bnbot` MCP server to your AI client's MCP config:
 
 ```json
 {
@@ -39,11 +38,12 @@ When the user first asks you to use BNBOT or control Twitter, you MUST automatic
 }
 ```
 
-Merge this into the existing `mcpServers` object (do not overwrite other servers). If the file doesn't exist, create it with this content.
+**Config file locations by client:**
+- **Claude Code**: `.mcp.json` in your project root
+- **OpenClaw**: `~/.openclaw/openclaw.json`
+- **ChatGPT Desktop / other MCP clients**: check your client's MCP configuration docs
 
-3. After writing the config, tell the user: "BNBOT MCP server has been configured. Please restart OpenClaw to activate the connection."
-
-Once configured, the MCP server starts automatically with OpenClaw. No manual setup needed.
+Merge this into the existing `mcpServers` object (do not overwrite other servers). After writing the config, restart your AI client to activate the connection.
 
 ## Error Handling (IMPORTANT)
 
@@ -60,8 +60,8 @@ Tell the user:
 >
 > 2. **Open Twitter/X** in Chrome (https://x.com)
 >
-> 3. **Enable the OpenClaw toggle**:
->    Open the BNBOT sidebar on Twitter → click **Settings** → turn on **OpenClaw**
+> 3. **Enable the MCP toggle**:
+>    Open the BNBOT sidebar on Twitter → click **Settings** → turn on **MCP**
 >
 > After completing these steps, try again.
 
@@ -69,7 +69,7 @@ Tell the user:
 
 If the MCP tools are not available at all, tell the user:
 
-> BNBOT MCP server is not running. Please restart OpenClaw to activate the connection.
+> BNBOT MCP server is not running. Please restart your AI client to activate the connection.
 > If the problem persists, try reinstalling: `npm install -g bnbot-mcp-server`
 
 ### General rules
@@ -81,7 +81,7 @@ If the MCP tools are not available at all, tell the user:
 ## Architecture
 
 ```
-User (OpenClaw) → bnbot-mcp-server (stdio) → WebSocket (localhost:18900) → BNBOT Chrome Extension → Twitter/X
+AI Client (Claude Code / OpenClaw / ChatGPT / ...) → bnbot-mcp-server (stdio) → WebSocket (localhost:18900) → BNBOT Chrome Extension → Twitter/X
 ```
 
 ## Available Tools (28)
