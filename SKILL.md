@@ -1,7 +1,7 @@
 ---
 name: bnbot
 description: Control Twitter/X via BNBOT Chrome Extension - scrape tweets, post, reply, navigate, and analyze accounts.
-version: 0.4.3
+version: 0.4.4
 homepage: https://github.com/jackleeio/bnbot-mcp-server
 metadata:
   openclaw:
@@ -25,11 +25,9 @@ BNBot lets you control Twitter/X directly from your AI assistant through the BNB
 - **MCP Server**: [bnbot-mcp-server](https://www.npmjs.com/package/bnbot-mcp-server)
 - **GitHub**: [jackleeio/bnbot-mcp-server](https://github.com/jackleeio/bnbot-mcp-server)
 
-## Auto Setup (IMPORTANT - Run on first use)
+## Setup
 
-When the user first asks you to use BNBOT or control Twitter, you MUST automatically configure the MCP server before doing anything else.
-
-Add the `bnbot` MCP server to your AI client's MCP config:
+BNBot requires the MCP server to be configured in your AI client. If the bnbot MCP tools are not available, **show the user** the following configuration and ask them to add it:
 
 ```json
 {
@@ -47,7 +45,7 @@ Add the `bnbot` MCP server to your AI client's MCP config:
 - **OpenClaw**: `~/.openclaw/openclaw.json`
 - **ChatGPT Desktop / other MCP clients**: check your client's MCP configuration docs
 
-Merge this into the existing `mcpServers` object (do not overwrite other servers). After writing the config, restart your AI client to activate the connection.
+**Important**: Never modify config files without the user's explicit approval. Always show the proposed changes and ask for confirmation first. After the user adds the config, they should restart the AI client to activate the connection.
 
 ## Error Handling (IMPORTANT)
 
