@@ -1,7 +1,7 @@
 ---
 name: bnbot
 description: The safest and most efficient way to automate Twitter/X — BNBot operates through a real browser session with 28 AI-powered tools. Grow your Twitter without API bans.
-version: 0.5.1
+version: 0.5.2
 homepage: https://github.com/jackleeio/bnbot-mcp-server
 metadata:
   openclaw:
