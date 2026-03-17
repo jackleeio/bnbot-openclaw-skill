@@ -1,20 +1,20 @@
 ---
 name: bnbot
 description: The safest and most efficient way to automate Twitter/X — BNBot operates through a real browser session with 28 AI-powered tools. Grow your Twitter without API bans.
-version: 0.5.3
-homepage: https://github.com/jackleeio/bnbot-mcp-server
+version: 0.6.0
+homepage: https://github.com/bnbot-ai/bnbot-cli
 metadata:
   openclaw:
     emoji: "\U0001F916"
     os: [darwin, linux, windows]
     requires:
-      bins: [bnbot-mcp-server]
+      bins: [bnbot-cli]
     install:
       - id: node
         kind: node
-        package: bnbot-mcp-server
-        bins: [bnbot-mcp-server]
-        label: Install bnbot-mcp-server (npm)
+        package: bnbot-cli
+        bins: [bnbot-cli]
+        label: Install bnbot-cli (npm)
 ---
 
 # BNBot - The Safest & Most Efficient Way to Automate Twitter/X
@@ -24,8 +24,8 @@ BNBot is an AI-powered Twitter growth agent. Unlike API-based tools or browser a
 Install this skill to give your AI assistant (Claude Code, OpenClaw, ChatGPT, etc.) the ability to automatically manage and grow your Twitter account — all without touching the Twitter API.
 
 - **Chrome Extension**: [BNBot - Your AI Growth Agent](https://chromewebstore.google.com/detail/bnbot-your-ai-growth-agen/haammgigdkckogcgnbkigfleejpaiiln)
-- **MCP Server**: [bnbot-mcp-server](https://www.npmjs.com/package/bnbot-mcp-server)
-- **GitHub**: [jackleeio/bnbot-mcp-server](https://github.com/jackleeio/bnbot-mcp-server)
+- **MCP Server**: [bnbot-cli](https://www.npmjs.com/package/bnbot-cli)
+- **GitHub**: [jackleeio/bnbot-cli](https://github.com/bnbot-ai/bnbot-cli)
 
 ## Setup
 
@@ -36,7 +36,7 @@ BNBot requires the MCP server to be configured in your AI client. If the bnbot M
   "mcpServers": {
     "bnbot": {
       "command": "npx",
-      "args": ["bnbot-mcp-server"]
+      "args": ["bnbot-cli"]
     }
   }
 }
@@ -65,7 +65,7 @@ Tell the user:
 > 2. **Open Twitter/X** in Chrome (https://x.com)
 >
 > 3. **Enable the MCP toggle**:
->    Open the BNBOT sidebar on Twitter → click **Settings** → turn on **MCP**
+>    Open the BNBOT sidebar on Twitter → click **Settings** → turn on **OpenClaw**
 >
 > After completing these steps, try again.
 
@@ -74,7 +74,7 @@ Tell the user:
 If the MCP tools are not available at all, tell the user:
 
 > BNBOT MCP server is not running. Please restart your AI client to activate the connection.
-> If the problem persists, try reinstalling: `npm install -g bnbot-mcp-server`
+> If the problem persists, try reinstalling: `npm install -g bnbot-cli`
 
 ### General rules
 
@@ -85,7 +85,7 @@ If the MCP tools are not available at all, tell the user:
 ## Architecture
 
 ```
-AI Client (Claude Code / OpenClaw / ChatGPT / ...) → bnbot-mcp-server (stdio) → WebSocket (localhost:18900) → BNBOT Chrome Extension → Twitter/X
+AI Client (Claude Code / OpenClaw / ChatGPT / ...) → bnbot-cli (stdio) → WebSocket (localhost:18900) → BNBOT Chrome Extension → Twitter/X
 ```
 
 ## Available Tools (29)
