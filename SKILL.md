@@ -64,7 +64,7 @@ Tell the user:
 >
 > 2. **Open Twitter/X** in Chrome (https://x.com)
 >
-> 3. **Enable the MCP toggle**:
+> 3. **Enable the OpenClaw toggle**:
 >    Open the BNBOT sidebar on Twitter → click **Settings** → turn on **OpenClaw**
 >
 > After completing these steps, try again.
