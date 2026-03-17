@@ -4,25 +4,32 @@ The safest and most efficient way to automate Twitter/X — [BNBot](https://chro
 
 ## Install
 
-```bash
-clawhub install bnbot
-```
+Add to your AI client's MCP config (Claude Code `.mcp.json`, etc.):
 
-Or search for "bnbot" on [ClawHub](https://clawhub.ai/).
+```json
+{
+  "mcpServers": {
+    "bnbot": {
+      "command": "npx",
+      "args": ["bnbot-cli"]
+    }
+  }
+}
+```
 
 ## Setup
 
 1. Install the [BNBot Chrome Extension](https://chromewebstore.google.com/detail/bnbot-your-ai-growth-agen/haammgigdkckogcgnbkigfleejpaiiln)
 2. Open [Twitter/X](https://x.com) in Chrome
-3. Open the BNBot sidebar and enable **MCP** in Settings
-4. Add the MCP server config to your AI client (the skill will show you the config and ask for your approval before any changes)
+3. Open the BNBot sidebar and enable **OpenClaw** in Settings
+4. Restart your AI client to activate the MCP connection
 
 ## Architecture
 
 ```mermaid
 flowchart LR
     subgraph "AI Client"
-        A[Claude Code / OpenClaw / ChatGPT] -->|"MCP (stdio)"| B[bnbot-mcp-server]
+        A[Claude Code / OpenClaw / ChatGPT] -->|"MCP (stdio)"| B[bnbot-cli]
     end
     subgraph Local
         B -->|"WebSocket\nlocalhost:18900"| C[BNBot Chrome Extension]
@@ -51,12 +58,12 @@ All actions go through your real browser session — indistinguishable from manu
 
 ## Requirements
 
-- [BNBot Chrome Extension](https://chromewebstore.google.com/detail/bnbot-your-ai-growth-agen/haammgigdkckogcgnbkigfleejpaiiln) installed and MCP enabled
+- [BNBot Chrome Extension](https://chromewebstore.google.com/detail/bnbot-your-ai-growth-agen/haammgigdkckogcgnbkigfleejpaiiln) installed and OpenClaw enabled
 - Twitter/X open in Chrome
-- [bnbot-mcp-server](https://www.npmjs.com/package/bnbot-mcp-server) configured in your AI client's MCP config
+- [bnbot-cli](https://www.npmjs.com/package/bnbot-cli) configured in your AI client's MCP config
 
 ## Links
 
 - [BNBot Chrome Extension](https://chromewebstore.google.com/detail/bnbot-your-ai-growth-agen/haammgigdkckogcgnbkigfleejpaiiln)
-- [bnbot-mcp-server (npm)](https://www.npmjs.com/package/bnbot-mcp-server)
-- [GitHub: bnbot-mcp-server](https://github.com/jackleeio/bnbot-mcp-server)
+- [bnbot-cli (npm)](https://www.npmjs.com/package/bnbot-cli)
+- [GitHub: bnbot-cli](https://github.com/bnbot-ai/bnbot-cli)
